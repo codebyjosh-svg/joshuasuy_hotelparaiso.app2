@@ -17,15 +17,15 @@ public class MenuPrincipal {
             System.out.println("1. Entrar a HOTELES");
             System.out.println("2. Entrar a CLIENTES");
             System.out.println("3. Entrar a RESERVACIONES");
-            System.out.println("4. SALISR DEL SISTEMA");
+            System.out.println("4. SALIR DEL SISTEMA");
             System.out.println("Seleccione una opcion:");
             
-            opcion =  Integer.parseInt(leer.nextLine());
+            opcion = Integer.parseInt(leer.nextLine().trim());
             
             switch (opcion){
                 case 1:
                     HotelView vista = new HotelView();
-                    HotelController control = new HotelController(vissta);
+                    HotelController control = new HotelController(vista);
                     control.iniciar();
                     break;
                 case 2:

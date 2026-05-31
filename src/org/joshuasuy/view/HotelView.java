@@ -17,7 +17,7 @@ public class HotelView {
         System.out.println("5. Eliminar un hotel");
         System.out.println("6. Regresar al menu principal");
         System.out.println("Selecciones una opcion: ");
-        return Integer.parseInt(leer.nextLine());        
+        return Integer.parseInt(leer.nextLine().trim());        
     }
     
     public String solicitarOcupaciones(){

@@ -13,20 +13,21 @@ public class Conexion {
     private static final String PASSWORD = "suy.24";
     
     public static Connection conectar(){
-        connection conexion = null;
+     Connection conexion = null; // ✅ Nombre corregido: conexion
         
-        try{
-            class.forName("com.mysql.cj.jdbc.Driver");
-            
+        try {
+            // ✅ Carga el driver de MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // ✅ Establece la conexión con los 3 datos
             conexion = DriverManager.getConnection(URL, USER, PASSWORD);
+            // Opcional: System.out.println("Conectado correctamente");
             
-        }catch (ClassNotFounException e){
-            System.err.print("ERROR:nohay driver.");
-            
-        }catch (SQLException ex){
-            System.err.print("ERROR: no se pudo conectar a la DB"+ ex.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.err.println("ERROR: No se encontró el driver de MySQL " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("ERROR: No se pudo conectar a la base de datos " + e.getMessage());
         }
         
         return conexion;
     }
-}
+}    
