@@ -21,8 +21,9 @@ public class HotelDAOImpl implements HotelDAO {
     public List<Hotel>listar(){
         List<Hotel> hoteles = new ArrayList<>();
         String consulta ="{call sp_listarhotel()}";
+        
         try (Connection conexion = conexion.conectar();
-            CallableStatemen call = conexion.prepareCall(consulta);
+            CallableStatement call = conexion.prepareCall(consulta);
             ResultSet resultado = call executeQuery()){
          while (resultado.next()){
              hoteles.add(new Hotel(
